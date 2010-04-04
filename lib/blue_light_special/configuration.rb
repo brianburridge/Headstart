@@ -5,11 +5,13 @@ module BlueLightSpecial
     attr_accessor :use_facebook_connect
     attr_accessor :facebook_api_key
     attr_accessor :facebook_secret_key
+    attr_accessor :use_delayed_job
 
     def initialize
       @mailer_sender          = 'donotreply@example.com'
       @impersonation_hash     = 'e76e05e1ddf74560ffb64c02a1c1b26c'
       @user_facebook_connect  = false
+      @use_delayed_job  = true
     end
   end
 

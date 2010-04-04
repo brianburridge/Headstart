@@ -8,6 +8,7 @@ begin
     config.mailer_sender        = configuration[:mailer_sender]
     config.impersonation_hash   = configuration[:impersonation_hash]
     config.use_facebook_connect = configuration[:use_facebook_connect]
+    config.use_delayed_job      = configuration[:use_delayed_job]
     config.facebook_api_key     = configuration[:facebook_api_key]
     config.facebook_secret_key  = configuration[:facebook_secret_key]
   end

@@ -197,7 +197,13 @@ module BlueLightSpecial
       end
       
       def send_welcome_email
-        Delayed::Job.enqueue DeliverWelcomeJob.new(self.id)
+        if BlueLightSpecial.configuration.use_delayed_job
+          Delayed::Job.enqueue DeliverWelcomeJob.new(self.id)
+        else
+          if user = ::User.find_by_id(self.id)
+            BlueLightSpecialMailer.deliver_mimi_welcome(user)
+          end
+        end
       end
       
     end

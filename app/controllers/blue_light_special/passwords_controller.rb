@@ -13,7 +13,11 @@ class BlueLightSpecial::PasswordsController < ApplicationController
   def create
     if user = ::User.find_by_email(params[:password][:email])
       user.forgot_password!
-      Delayed::Job.enqueue DeliverChangePasswordJob.new(user)
+      if BlueLightSpecial.configuration.use_delayed_job
+        Delayed::Job.enqueue DeliverChangePasswordJob.new(user)
+      else
+        BlueLightSpecialMailer.deliver_mimi_change_password(user)
+      end
       flash_notice_after_create
       redirect_to(url_after_create)
     else

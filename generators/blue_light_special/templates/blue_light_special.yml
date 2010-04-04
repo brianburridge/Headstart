@@ -20,6 +20,7 @@ development:
   madmimi_api_key: 
   impersonation_hash: 
   use_facebook_connect: false
+  use_delayed_job: true
   facebook_api_key: 
   facebook_secret_key: 
 
@@ -29,6 +30,7 @@ test:
   madmimi_api_key: 
   impersonation_hash: 
   use_facebook_connect: false
+  use_delayed_job: true
   facebook_api_key: 
   facebook_secret_key: 
 
@@ -38,5 +40,6 @@ production:
   madmimi_api_key: 
   impersonation_hash: 
   use_facebook_connect: false
+  use_delayed_job: true
   facebook_api_key: 
   facebook_secret_key: 
