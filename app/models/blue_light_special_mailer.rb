@@ -1,22 +1,19 @@
-class BlueLightSpecialMailer < MadMimiMailer
+class BlueLightSpecialMailer
 
-  def mimi_change_password(user)
-    from       BlueLightSpecial.configuration.mailer_sender
-    recipients user.email
-    subject    I18n.t(:change_password,
-                      :scope   => [:blue_light_special, :models, :blue_light_special_mailer],
-                      :default => "Change your password")
-    body       :url => edit_user_password_url(user,
-                       :token  => user.password_reset_token,
-                       :escape => false)
+  def self.deliver_change_password(user)
+    if MadMimiMailer.api_settings.present? && MadMimiMailer.api_settings[:username].present? && MadMimiMailer.api_settings[:api_key].present?
+      MimiMailer.deliver_mimi_change_password(user)
+    else
+      GenericMailer.deliver_mimi_change_password(user)
+    end
   end
   
-  def mimi_welcome(user)
-    from       BlueLightSpecial.configuration.mailer_sender
-    recipients user.email
-    subject    I18n.t(:welcome,
-                      :scope   => [:blue_light_special, :models, :blue_light_special_mailer],
-                      :default => "Welcome")
+  def self.deliver_welcome(user)
+    if MadMimiMailer.api_settings.present? && MadMimiMailer.api_settings[:username].present? && MadMimiMailer.api_settings[:api_key].present?
+      MimiMailer.deliver_generic_welcome(user)
+    else
+      GenericMailer.deliver_generic_welcome(user)
+    end
   end
 
 end

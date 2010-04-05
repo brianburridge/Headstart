@@ -12,7 +12,7 @@ class DeliverChangePasswordJob
   
   def perform
     if user = User.find_by_id(@user_id)
-      BlueLightSpecialMailer.deliver_mimi_change_password(user)
+      BlueLightSpecialMailer.deliver_change_password(user)
     end
   end
   

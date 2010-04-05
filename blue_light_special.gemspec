@@ -28,6 +28,8 @@ Gem::Specification.new do |s|
      "app/models/blue_light_special_mailer.rb",
      "app/models/deliver_change_password_job.rb",
      "app/models/deliver_welcome_job.rb",
+     "app/models/mimi_mailer.rb",
+     "app/models/generic_mailer.rb",
      "app/models/impersonation.rb",
      "app/views/blue_light_special_mailer/change_password.html.erb",
      "app/views/impersonations/index.html.erb",

@@ -201,7 +201,7 @@ module BlueLightSpecial
           Delayed::Job.enqueue DeliverWelcomeJob.new(self.id)
         else
           if user = ::User.find_by_id(self.id)
-            BlueLightSpecialMailer.deliver_mimi_welcome(user)
+            BlueLightSpecialMailer.deliver_welcome(user)
           end
         end
       end
