@@ -27,6 +27,10 @@ module BlueLightSpecial
         users.resource :password,
           :controller => 'blue_light_special/passwords',
           :only       => [:create, :edit, :update]
+          
+        users.resource :confirmation,
+          :controller => 'blue_light_special/confirmations',
+          :only       => [:new, :create]
       end
       
       map.resource :impersonation,

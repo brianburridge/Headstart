@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{blue_light_special}
+  s.name = %q{blue_light_special_heroku_fork}
   s.version = "0.2.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "app/controllers/blue_light_special/impersonations_controller.rb",
+     "app/controllers/blue_light_special/confirmations_controller.rb",
      "app/controllers/blue_light_special/passwords_controller.rb",
      "app/controllers/blue_light_special/sessions_controller.rb",
      "app/controllers/blue_light_special/users_controller.rb",
@@ -31,7 +32,9 @@ Gem::Specification.new do |s|
      "app/models/mimi_mailer.rb",
      "app/models/generic_mailer.rb",
      "app/models/impersonation.rb",
-     "app/views/blue_light_special_mailer/change_password.html.erb",
+     "app/views/generic_mailer/change_password.html.erb",
+     "app/views/generic_mailer/confirmation.html.erb",
+     "app/views/generic_mailer/welcome.html.erb",
      "app/views/impersonations/index.html.erb",
      "app/views/passwords/edit.html.erb",
      "app/views/passwords/new.html.erb",

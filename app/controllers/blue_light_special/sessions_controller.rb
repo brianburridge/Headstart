@@ -21,9 +21,15 @@ class BlueLightSpecial::SessionsController < ApplicationController
       flash_failure_after_create
       render :template => 'sessions/new', :status => :unauthorized
     else
-      sign_in(@user)
-      flash_success_after_create
-      redirect_back_or(url_after_create)
+      if @user.email_confirmed?
+        sign_in(@user)
+        flash_success_after_create
+        redirect_back_or(url_after_create)
+      else
+        ::BlueLightSpecialMailer.deliver_confirmation(@user)
+        flash_notice_after_create
+        redirect_to(sign_in_url)
+      end
     end
   end
 

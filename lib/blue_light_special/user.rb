@@ -71,8 +71,9 @@ module BlueLightSpecial
         model.class_eval do
           before_save   :initialize_salt,
                         :encrypt_password
-          before_create :generate_remember_token
-          after_create  :send_welcome_email
+          before_create :generate_confirmation_token,
+                        :generate_remember_token
+          after_create  :send_welcome_email, :unless => :email_confirmed?
         end
       end
     end
@@ -105,6 +106,16 @@ module BlueLightSpecial
         save(false)
       end
 
+      # Confirm my email.
+      #
+      # @example
+      #   user.confirm_email!
+      def confirm_email!
+        self.email_confirmed    = true
+        self.confirmation_token = nil
+        save(false)
+      end
+      
       # Mark my account as forgotten password.
       #
       # @example
@@ -168,6 +179,10 @@ module BlueLightSpecial
         generate_hash("--#{salt}--#{string}--")
       end
       
+      def generate_confirmation_token
+        self.confirmation_token = encrypt("--#{Time.now.utc}--#{password}--#{rand}--")
+      end
+      
       def generate_password_reset_token
         self.password_reset_token = encrypt("--#{Time.now.utc}--#{password}--#{rand}--")
       end
@@ -204,6 +219,10 @@ module BlueLightSpecial
             BlueLightSpecialMailer.deliver_welcome(user)
           end
         end
+      end
+      
+      def send_confirmation_email
+        BlueLightSpecialMailer.deliver_confirmation self
       end
       
     end
