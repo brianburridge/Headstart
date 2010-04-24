@@ -49,6 +49,9 @@ module BlueLightSpecial
       map.fb_connect 'fb_connect',
         :controller   => 'blue_light_special/sessions',
         :action       => 'create'
+      map.fb_disconnect 'fb_disconnect',
+        :controller   => 'blue_light_special/users',
+        :action       => 'facebook_remove'
       map.sign_out   'sign_out',
         :controller   => 'blue_light_special/sessions',
         :action       => 'destroy',

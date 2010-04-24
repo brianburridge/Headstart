@@ -73,7 +73,7 @@ module BlueLightSpecial
                         :encrypt_password
           before_create :generate_confirmation_token,
                         :generate_remember_token
-          after_create  :send_welcome_email, :unless => :email_confirmed?
+          after_create  :send_welcome_email, :unless => :suppress_receive_welcome_email?
         end
       end
     end
@@ -89,6 +89,19 @@ module BlueLightSpecial
         encrypted_password == encrypt(password)
       end
 
+      # Don't send welcome email if email already confirmed, or
+      # use is a facebook connect user
+      def suppress_receive_welcome_email?
+        return true if email_confirmed?
+        if self.facebook_uid.present?
+          self.email_confirmed    = true
+          self.confirmation_token = nil
+          self.save
+          return true
+        end
+        return false
+      end
+      
       # Set the remember token.
       #
       # @deprecated Use {#reset_remember_token!} instead

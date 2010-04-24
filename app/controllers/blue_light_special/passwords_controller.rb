@@ -13,13 +13,18 @@ class BlueLightSpecial::PasswordsController < ApplicationController
   def create
     if user = ::User.find_by_email(params[:password][:email])
       user.forgot_password!
-      if BlueLightSpecial.configuration.use_delayed_job
-        Delayed::Job.enqueue DeliverChangePasswordJob.new(user)
+      if user.password_reset_token.present?
+        if BlueLightSpecial.configuration.use_delayed_job
+          Delayed::Job.enqueue DeliverChangePasswordJob.new(user)
+        else
+          BlueLightSpecialMailer.deliver_change_password(user)
+        end
+        flash_notice_after_create
+        redirect_to(url_after_create)
       else
-        BlueLightSpecialMailer.deliver_change_password(user)
+        flash[:notice] = 'Your password was not able to be recovered. You may never have finished registration.'
+        render :template => 'passwords/new'
       end
-      flash_notice_after_create
-      redirect_to(url_after_create)
     else
       flash_failure_after_create
       render :template => 'passwords/new'

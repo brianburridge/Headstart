@@ -1,6 +1,6 @@
 class GenericMailer < ActionMailer::Base
 
-  def generic_change_password(user)
+  def change_password(user)
     from       BlueLightSpecial.configuration.mailer_sender
     recipients user.email
     subject    I18n.t(:change_password,
@@ -11,7 +11,7 @@ class GenericMailer < ActionMailer::Base
                        :escape => false)
   end
   
-  def generic_welcome(user)
+  def welcome(user)
     from       BlueLightSpecial.configuration.mailer_sender
     recipients user.email
     subject    I18n.t(:welcome,

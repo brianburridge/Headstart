@@ -90,6 +90,26 @@ be sending email messages.
 After you've finished setting up your Facebook app, grab its API key and secret key
 and put them in config/blue_light_special.yml.
 
+== To Build the Gem ==
+gem build cops.gemspec
+
+sudo gem install cops.gem
+
+gem push cops-0.2.0.1.gem
+
+gem yank cops -v 0.2.0.1
+
+== Differences from Blue Light Special ==
+1. MimiMailer was made optional. In some cases, like deploying on heroku, you won't want to use MimiMailer templates, but instead regular mailer templates. Cops does not use MimiMailer unless you've setup your login info for that service.
+2. DelayedJob is now optional. You can turn off the use of delayed job, again in the case of deploying to Heroku for example where you do not want to pay the extra fees of using a background worker. In this case emails will be sent immediately and not queued.
+3. The welcome email is not only suppressed if the email is already confirmed, but is also not sent if the user connects via Facebook. Since Facebook returns the email already, which presumably Facebook has already confirmed, Cops marks the user as already confirmed.
+4. Cops adds back into BlueLightSpecial, the email confirmation from Clearance. This is only used for non-facebook connect users
+5. Added flash notice on creation of user
+6. Using redirect_back_or in all cases so app using Cops gem has an option of where to send the user
+7. Added a facebook_logout method that facebook can call via its Post-Remove Callback, to remove user from app
+8. Changed to user can still log in even though they haven't confirmed their email (they just aren't active)
+9. The change password function was using the confirmation token instead of the password reset token in several spots
+
 == Copyright
 
 Copyright (c) 2010 Envy Labs LLC. See LICENSE for details.
