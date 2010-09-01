@@ -2,10 +2,10 @@ require 'test_helper'
 
 class PasswordsControllerTest < ActionController::TestCase
 
-  tests BlueLightSpecial::PasswordsController
+  tests Headstart::PasswordsController
 
   should_route :get, '/users/1/password/edit',
-    :controller => 'blue_light_special/passwords', :action  => 'edit', :user_id => '1'
+    :controller => 'headstart/passwords', :action  => 'edit', :user_id => '1'
 
   context "a signed up user" do
     setup do

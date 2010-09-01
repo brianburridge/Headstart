@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
 
-  tests BlueLightSpecial::SessionsController
+  tests Headstart::SessionsController
 
   should_filter_params :password
 

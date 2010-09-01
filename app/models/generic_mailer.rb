@@ -1,10 +1,10 @@
 class GenericMailer < ActionMailer::Base
 
   def change_password(user)
-    from       BlueLightSpecial.configuration.mailer_sender
+    from       Headstart.configuration.mailer_sender
     recipients user.email
     subject    I18n.t(:change_password,
-                      :scope   => [:blue_light_special, :models, :blue_light_special_mailer],
+                      :scope   => [:headstart, :models, :headstart_mailer],
                       :default => "Change your password")
     body       :url => edit_user_password_url(user,
                        :token  => user.password_reset_token,
@@ -12,19 +12,19 @@ class GenericMailer < ActionMailer::Base
   end
   
   def welcome(user)
-    from       BlueLightSpecial.configuration.mailer_sender
+    from       Headstart.configuration.mailer_sender
     recipients user.email
     subject    I18n.t(:welcome,
-                      :scope   => [:blue_light_special, :models, :blue_light_special_mailer],
+                      :scope   => [:headstart, :models, :headstart_mailer],
                       :default => "Welcome")
     body      :user => user
   end
 
   def confirmation(user)
-    from       BlueLightSpecial.configuration.mailer_sender
+    from       Headstart.configuration.mailer_sender
     recipients user.email
     subject    I18n.t(:confirmation,
-                      :scope   => [:blue_light_special, :models, :blue_light_special_mailer],
+                      :scope   => [:headstart, :models, :headstart_mailer],
                       :default => "Account confirmation")
     body      :user => user
   end

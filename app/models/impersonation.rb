@@ -20,7 +20,7 @@ module Impersonation
   
   
   def self.generate_hash(id)
-    Digest::MD5.hexdigest("----#{id}-----#{BlueLightSpecial.configuration.impersonation_hash}-----")
+    Digest::MD5.hexdigest("----#{id}-----#{Headstart.configuration.impersonation_hash}-----")
   end
   
 end

@@ -1,5 +1,5 @@
 ##
-# Delivers the BlueLightSpecial.deliver_mimi_change_password to the requested 
+# Delivers the Headstart.deliver_mimi_change_password to the requested 
 # User by +id+ as an asynchronous process.
 # 
 class DeliverChangePasswordJob
@@ -12,7 +12,7 @@ class DeliverChangePasswordJob
   
   def perform
     if user = User.find_by_id(@user_id)
-      BlueLightSpecialMailer.deliver_change_password(user)
+      HeadstartMailer.deliver_change_password(user)
     end
   end
   

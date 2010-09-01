@@ -1,8 +1,7 @@
-= Blue Light Special
+= Headstart
 
-Blue Light Special is a derivative from Thoughtbot's 
-{Clearance}[http://github.com/thoughtbot/clearance] gem.  It's a highly
-opinionated starting point for many of our projects at Envy Labs.
+Headstart is an enhancement based on Blue Light Special which is a derivative from Thoughtbot's 
+{Clearance}[http://github.com/thoughtbot/clearance] gem.  
 
 In addition to the basic email and password authentication provided by
 Clearance, a default Blue Light Special installation includes:
@@ -21,21 +20,23 @@ Clearance, a default Blue Light Special installation includes:
 
 == Setup
 
+Note: Before Blue Light Special can run, the database must be created, the database.yml configured, and permissions granted to the user. The 'create-rails-dev-db' gem does all this. Run it with 'create-rails-dev-db' within the Rails app first.
+
 After installing the Blue Light Special gem, require it in your Rails app and run
-the blue_light_special generator.
+the headstart generator.
 
 In your config/environment.rb:
 
-  config.gem 'blue_light_special'
+  config.gem 'headstart'
 
 Run the generators and migrate your database:
 
-  script/generate blue_light_special
+  script/generate headstart
   script/generate delayed_job
   rake db:migrate
 	
 You'll also want to take a look at Blue Light Special's configuration options
-in config/blue_light_special.yml.
+in config/headstart.yml.
 
 == Tests
 
@@ -44,7 +45,7 @@ of its basic features.  These tests require {shoulda}[http://github.com/thoughtb
 {factory_girl}[http://github.com/thoughtbot/factory_girl], {webrat}[http://github.com/brynary/webrat],
 and {fakeweb}[http://github.com/chrisk/fakeweb].  To install the tests:
 
-  script/generate blue_light_special_tests
+  script/generate headstart_tests
 	
 After the generator runs, you'll see  instructions for updating
 test/test_helper.rb to include some helper methods that the tests require.
@@ -58,7 +59,7 @@ interface for your app.  This allows admins to manage and impersonate users,
 and it can be used as a starting point for building a more elaborate admin
 interface.  If you'd like to generate the admin interface, run:
 
-  script/generate blue_light_special_admin
+  script/generate headstart_admin
 	
 This will generate your user admin controller and its integration test.
 
@@ -76,7 +77,7 @@ your account is authorized, you'll see HTTP errors when your Rails app attempts 
 send email.
 
 After you've signed up and your API access has been approved, all you'll need to do is
-put your Mad Mimi username and API key in config/blue_light_special.yml.
+put your Mad Mimi username and API key in config/headstart.yml.
 
 == Facebook Connect
 
@@ -88,24 +89,24 @@ In the Advanced section, you'll need to set Email Domain to the domain from whic
 be sending email messages.
 
 After you've finished setting up your Facebook app, grab its API key and secret key
-and put them in config/blue_light_special.yml.
+and put them in config/headstart.yml.
 
 == To Build the Gem ==
-gem build cops.gemspec
+gem build headstart.gemspec
 
-sudo gem install cops.gem
+sudo gem install headstart.gem
 
-gem push cops-0.2.0.1.gem
+gem push headstart-0.1.0.gem
 
-gem yank cops -v 0.2.0.1
+gem yank headstart -v 0.1.0
 
 == Differences from Blue Light Special ==
-1. MimiMailer was made optional. In some cases, like deploying on heroku, you won't want to use MimiMailer templates, but instead regular mailer templates. Cops does not use MimiMailer unless you've setup your login info for that service.
+1. MimiMailer was made optional. In some cases, like deploying on heroku, you won't want to use MimiMailer templates, but instead regular mailer templates. Headstart does not use MimiMailer unless you've setup your login info for that service.
 2. DelayedJob is now optional. You can turn off the use of delayed job, again in the case of deploying to Heroku for example where you do not want to pay the extra fees of using a background worker. In this case emails will be sent immediately and not queued.
-3. The welcome email is not only suppressed if the email is already confirmed, but is also not sent if the user connects via Facebook. Since Facebook returns the email already, which presumably Facebook has already confirmed, Cops marks the user as already confirmed.
-4. Cops adds back into BlueLightSpecial, the email confirmation from Clearance. This is only used for non-facebook connect users
+3. The welcome email is not only suppressed if the email is already confirmed, but is also not sent if the user connects via Facebook. Since Facebook returns the email already, which presumably Facebook has already confirmed, Headstart marks the user as already confirmed.
+4. Headstart adds back into Headstart, the email confirmation from Clearance. This is only used for non-facebook connect users
 5. Added flash notice on creation of user
-6. Using redirect_back_or in all cases so app using Cops gem has an option of where to send the user
+6. Using redirect_back_or in all cases so app using Headstart gem has an option of where to send the user
 7. Added a facebook_logout method that facebook can call via its Post-Remove Callback, to remove user from app
 8. Changed to user can still log in even though they haven't confirmed their email (they just aren't active)
 9. The change password function was using the confirmation token instead of the password reset token in several spots

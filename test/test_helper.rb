@@ -4,14 +4,14 @@ require File.expand_path(File.dirname(__FILE__) +
 require 'test_help'
 
 $: << File.expand_path(File.dirname(__FILE__) + '/..')
-require 'blue_light_special'
+require 'headstart'
 
 begin
   require 'redgreen'
 rescue LoadError
 end
 
-require File.join(File.dirname(__FILE__), '..', 'shoulda_macros', 'blue_light_special')
+require File.join(File.dirname(__FILE__), '..', 'shoulda_macros', 'headstart')
 
 class ActiveSupport::TestCase
   self.use_transactional_fixtures = true

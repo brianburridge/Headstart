@@ -5,11 +5,11 @@ require 'rake/testtask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name        = "blue_light_special"
+    gem.name        = "headstart"
     gem.summary     = %Q{Rails authentication by email and password}
     gem.description = %Q{Rails authentication by email and password with integrated dependencies to MadMimi. Also provides administrative user impersonation.}
     gem.email       = "nate@envylabs.com"
-    gem.homepage    = "http://github.com/envylabs/blue_light_special"
+    gem.homepage    = "http://github.com/envylabs/headstart"
     gem.authors     = ["Nathaniel Bibler", "Mark Kendall", "Caike Souza"]
     gem.files       = FileList["[A-Z]*", "{app,config,generators,lib,shoulda_macros,rails}/**/*"]
     
@@ -27,9 +27,9 @@ end
 namespace :test do
   Rake::TestTask.new(:basic => ["check_dependencies",
                                 "generator:cleanup",
-                                "generator:blue_light_special",
-                                "generator:blue_light_special_tests",
-                                "generator:blue_light_special_admin"]) do |task|
+                                "generator:headstart",
+                                "generator:headstart_tests",
+                                "generator:headstart_admin"]) do |task|
     task.libs << "lib"
     task.libs << "test"
     task.pattern = "test/{controllers,models}/*_test.rb"
@@ -37,7 +37,7 @@ namespace :test do
   end
 end
 
-generators = %w(blue_light_special blue_light_special_tests blue_light_special_admin)
+generators = %w(headstart headstart_tests headstart_admin)
 
 namespace :generator do
   desc "Cleans up the test app before running the generator"
@@ -46,25 +46,25 @@ namespace :generator do
       FileUtils.rm_rf(each)
     end
     
-    FileUtils.rm_rf("test/rails_root/vendor/plugins/blue_light_special")
+    FileUtils.rm_rf("test/rails_root/vendor/plugins/headstart")
     FileUtils.mkdir_p("test/rails_root/vendor/plugins")
-    blue_light_special_root = File.expand_path(File.dirname(__FILE__))
-    system("ln -s \"#{blue_light_special_root}\" test/rails_root/vendor/plugins/blue_light_special")
+    headstart_root = File.expand_path(File.dirname(__FILE__))
+    system("ln -s \"#{headstart_root}\" test/rails_root/vendor/plugins/headstart")
   end
   
-  desc "Run the blue_light_special generator"
-  task :blue_light_special do
-    system "cd test/rails_root && ./script/generate blue_light_special -f && ./script/generate delayed_job && rake gems:unpack && rake db:migrate db:test:prepare"
+  desc "Run the headstart generator"
+  task :headstart do
+    system "cd test/rails_root && ./script/generate headstart -f && ./script/generate delayed_job && rake gems:unpack && rake db:migrate db:test:prepare"
   end
 
-  desc "Run the blue_light_special tests generator"
-  task :blue_light_special_tests do
-    system "cd test/rails_root && ./script/generate blue_light_special_tests -f"
+  desc "Run the headstart tests generator"
+  task :headstart_tests do
+    system "cd test/rails_root && ./script/generate headstart_tests -f"
   end
 
-  desc "Run the blue_light_special admin generator"
-  task :blue_light_special_admin do
-    system "cd test/rails_root && ./script/generate blue_light_special_admin -f"
+  desc "Run the headstart admin generator"
+  task :headstart_admin do
+    system "cd test/rails_root && ./script/generate headstart_admin -f"
   end
   
 end
@@ -89,7 +89,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = "BlueLightSpecial #{version}"
+  rdoc.title    = "Headstart #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

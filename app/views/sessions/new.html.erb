@@ -1,4 +1,4 @@
-<%- if BlueLightSpecial.configuration.use_facebook_connect -%>
+<%- if Headstart.configuration.use_facebook_connect -%>
   <%- if request.ssl? -%>
     <%= javascript_include_tag 'https://ssl.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US' %>
   <%- else -%>
@@ -24,7 +24,7 @@
   </div>
   <div class="submit_field">
     <%= form.submit "Sign in", :disable_with => "Please wait..." %>
-    <%- if BlueLightSpecial.configuration.use_facebook_connect -%>
+    <%- if Headstart.configuration.use_facebook_connect -%>
       or <fb:login-button onlogin="facebook_onlogin();" length="long" v="2" size="large"></fb:login-button>
     <%- end -%>
   </div>
@@ -39,9 +39,9 @@
   </li>
 </ul>
 
-<%- if BlueLightSpecial.configuration.use_facebook_connect -%>
+<%- if Headstart.configuration.use_facebook_connect -%>
   <script type="text/javascript">
-    FB.init("<%= BlueLightSpecial.configuration.facebook_api_key %>", "xd_receiver.html", {
+    FB.init("<%= Headstart.configuration.facebook_api_key %>", "xd_receiver.html", {
       permsToRequestOnConnect : "email",
     });
   </script>

@@ -10,7 +10,7 @@ class DeliverWelcomeJob
   
   def perform
     if user = User.find_by_id(@user_id)
-      BlueLightSpecialMailer.deliver_welcome(user)
+      HeadstartMailer.deliver_welcome(user)
     end
   end
   
