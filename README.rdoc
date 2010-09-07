@@ -20,9 +20,9 @@ Clearance, a default Blue Light Special installation includes:
 
 == Setup
 
-Note: Before Blue Light Special can run, the database must be created, the database.yml configured, and permissions granted to the user. The 'create-rails-dev-db' gem does all this. Run it with 'create-rails-dev-db' within the Rails app first.
+Note: Before Headstart can run, the database must be created, the database.yml configured, and permissions granted to the user. The 'create-rails-dev-db' gem does all this. Run it with 'create-rails-dev-db' within the Rails app first.
 
-After installing the Blue Light Special gem, require it in your Rails app and run
+After installing the Headstart gem, require it in your Rails app and run
 the headstart generator.
 
 In your config/environment.rb:

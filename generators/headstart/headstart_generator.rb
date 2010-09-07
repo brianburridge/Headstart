@@ -17,7 +17,7 @@ class HeadstartGenerator < Rails::Generator::Base
 
       m.directory File.join("public", "stylesheets")
       m.file "style.css", "public/stylesheets/style.css"
-      m.file "reports.css", "public/stylesheets/report.css"
+      m.file "report.css", "public/stylesheets/report.css"
       m.file "reset.css", "public/stylesheets/reset.css"
       m.file "text.css", "public/stylesheets/text.css"
       m.file "layout.css", "public/stylesheets/layout.css"

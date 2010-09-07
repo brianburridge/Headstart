@@ -6,11 +6,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name        = "headstart"
-    gem.summary     = %Q{Rails authentication by email and password}
-    gem.description = %Q{Rails authentication by email and password with integrated dependencies to MadMimi. Also provides administrative user impersonation.}
-    gem.email       = "nate@envylabs.com"
-    gem.homepage    = "http://github.com/envylabs/headstart"
-    gem.authors     = ["Nathaniel Bibler", "Mark Kendall", "Caike Souza"]
+    gem.summary     = %Q{Headstart provides the Rails developer a headstart in creating a Rails app providing the most common functionalities needed in most Rails apps.}
+    gem.description = %Q{This is based on Envy Labs Blue Light Special, but modified heavily to provide more options and features.}
+    gem.email       = "brian@burridge.net"
+    gem.homepage    = "http://github.com/bburridge/Headstart"
+    gem.authors     = ["Bran Burridge"]
     gem.files       = FileList["[A-Z]*", "{app,config,generators,lib,shoulda_macros,rails}/**/*"]
     
     gem.add_dependency "mini_fb", '=0.2.2'
