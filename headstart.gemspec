@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
   s.date = %q{2010-09-08}
-  s.description = %q{This is based on Envy Labs Blue Light Special, but modified heavily to provide more options and features.}
+  s.description = %q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -103,7 +103,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Headstart provides the Rails developer a headstart in creating a Rails app providing the most common functionalities needed in most Rails apps.}
+  s.summary = %q{Headstart provides the Rails developer a headstart in creating a Rails app providing basic user authentication features.}
   s.test_files = [
     "test/controllers/passwords_controller_test.rb",
      "test/controllers/sessions_controller_test.rb",

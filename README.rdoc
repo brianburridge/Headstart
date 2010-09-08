@@ -115,4 +115,4 @@ gem yank headstart -v 0.1.0
 10. Implements http://www.modernizr.com/docs/
 == Copyright
 
-Copyright (c) 2010 Envy Labs LLC. See LICENSE for details.
+Copyright (c) 2010 Agile Nomads LLC. See LICENSE for details.

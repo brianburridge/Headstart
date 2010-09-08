@@ -6,8 +6,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name        = "headstart"
-    gem.summary     = %Q{Headstart provides the Rails developer a headstart in creating a Rails app providing the most common functionalities needed in most Rails apps.}
-    gem.description = %Q{This is based on Envy Labs Blue Light Special, but modified heavily to provide more options and features.}
+    gem.summary     = %Q{Headstart provides the Rails developer a headstart in creating a Rails app providing basic user authentication features.}
+    gem.description = %Q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
     gem.email       = "brian@burridge.net"
     gem.homepage    = "http://github.com/bburridge/Headstart"
     gem.authors     = ["Bran Burridge"]
