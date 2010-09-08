@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en-US" lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en-US" lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-  <title><%= yield(:title) %></title>
+  <title><%= yield(:title) %> - <%= Settings.title %></title>
   <meta name="description" content="<%= yield(:description) %>" />
   <meta name="keywords" content="<%= yield(:keywords) %>" />
   <meta name="robots" content="INDEX,FOLLOW" />
@@ -14,14 +14,14 @@
 	<%- else -%>
 	  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
 	<%- end -%>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application','modernizr-1.5.min' %>
 </head>
 <body>
 	
 	<div id="header" class="container_12">
 
 		<div id="title" class="grid_6 ">
-			Default Web App
+			<%= format_title(Settings.title) %>
 		</div>
 
 		<div id="nav" class="grid_6 ">

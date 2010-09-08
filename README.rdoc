@@ -92,6 +92,8 @@ After you've finished setting up your Facebook app, grab its API key and secret 
 and put them in config/headstart.yml.
 
 == To Build the Gem ==
+rake gemspec
+
 gem build headstart.gemspec
 
 sudo gem install headstart.gem
@@ -110,7 +112,7 @@ gem yank headstart -v 0.1.0
 7. Added a facebook_logout method that facebook can call via its Post-Remove Callback, to remove user from app
 8. Changed to user can still log in even though they haven't confirmed their email (they just aren't active)
 9. The change password function was using the confirmation token instead of the password reset token in several spots
-
+10. Implements http://www.modernizr.com/docs/
 == Copyright
 
 Copyright (c) 2010 Envy Labs LLC. See LICENSE for details.

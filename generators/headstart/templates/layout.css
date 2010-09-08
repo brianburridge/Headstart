@@ -1,3 +1,24 @@
+#header {
+  height:80px;
+  border-bottom:1px solid #000;
+}
+#nav {
+  margin-top:54px;
+  height:30px;
+  text-align:right;
+}
+#content {
+width: 940px;
+padding:10px;
+height:400px;
+}
+#footer {
+  border-top:1px solid #aaa;
+}
+#meta {
+  text-align:right;
+}
+
 
 /* Containers
 ----------------------------------------------------------------------------------------------------*/

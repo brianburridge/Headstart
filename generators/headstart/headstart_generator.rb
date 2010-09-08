@@ -14,6 +14,29 @@ class HeadstartGenerator < Rails::Generator::Base
       m.directory File.join("app", "views", "sessions")
       m.file "application.html.erb", "app/views/layouts/application.html.erb"
       m.file "app/views/sessions/index.html.erb", "app/views/sessions/index.html.erb"
+      m.insert_into "app/helpers/application_helper.rb", 
+        'def format_title(title)
+          title_words = title.split(" ")
+
+          if title_words.size >= 2
+            f_half_loc = (title_words.size/2.0).ceil
+            content = "<span class=\'first_half\'>"
+            (0..f_half_loc-1).each do |i|
+              content += title_words[i]
+            end
+            content += "</span>"
+
+            content += "<span class=\'second_half\'>"
+            (f_half_loc..title_words.size-1).each do |i|
+              content += title_words[i]
+            end
+            content += "</span>"
+
+          else
+            content = title
+          end
+          return content
+        end'
 
       m.directory File.join("public", "stylesheets")
       m.file "style.css", "public/stylesheets/style.css"
@@ -21,6 +44,8 @@ class HeadstartGenerator < Rails::Generator::Base
       m.file "reset.css", "public/stylesheets/reset.css"
       m.file "text.css", "public/stylesheets/text.css"
       m.file "layout.css", "public/stylesheets/layout.css"
+      
+      m.file "modernizr-1.5.min.js", "public/javascripts/modernizr-1.5.min.js"
 
       m.file "xd_receiver.html", "public/xd_receiver.html"
       m.file "xd_receiver_ssl.html", "public/xd_receiver_ssl.html"

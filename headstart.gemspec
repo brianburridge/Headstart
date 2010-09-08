@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
-  s.date = %q{2010-09-07}
+  s.date = %q{2010-09-08}
   s.description = %q{This is based on Envy Labs Blue Light Special, but modified heavily to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [
@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
      "generators/headstart/lib/rake_commands.rb",
      "generators/headstart/templates/README",
      "generators/headstart/templates/app/controllers/sessions_controller.rb",
+     "generators/headstart/templates/app/helpers/application_helper.rb",
      "generators/headstart/templates/app/views/sessions/index.html.erb",
      "generators/headstart/templates/application.html.erb",
      "generators/headstart/templates/factories.rb",
@@ -57,6 +58,7 @@ Gem::Specification.new do |s|
      "generators/headstart/templates/layout.css",
      "generators/headstart/templates/migrations/create_users.rb",
      "generators/headstart/templates/migrations/update_users.rb",
+     "generators/headstart/templates/modernizr-1.5.min.js",
      "generators/headstart/templates/report.css",
      "generators/headstart/templates/reset.css",
      "generators/headstart/templates/style.css",
