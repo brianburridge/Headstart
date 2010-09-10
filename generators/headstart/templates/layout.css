@@ -18,7 +18,12 @@ min-height:400px;
 #meta {
   text-align:right;
 }
-
+label {
+display:block;
+}
+.text_field, .submit_field {
+  margin-top:6px;
+}
 
 /* Containers
 ----------------------------------------------------------------------------------------------------*/

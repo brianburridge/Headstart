@@ -16,8 +16,8 @@
 }
 
 .notice_flash {
-	color: #00529B;
-	background-color: #BDE5F8;
+	color: #fff;
+	background-color: #aaa;
 }
 
 .failure_flash {
@@ -26,6 +26,6 @@
 }
 
 .success_flash {
-	color: #4F8A10;
-	background-color: #DFF2BF;
+	color: #fff;
+	background-color: #aaa;
 }

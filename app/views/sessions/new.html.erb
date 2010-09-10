@@ -1,3 +1,4 @@
+<% content_for :title do %>Sign in<% end %>
 <%- if Headstart.configuration.use_facebook_connect -%>
   <%- if request.ssl? -%>
     <%= javascript_include_tag 'https://ssl.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US' %>
@@ -23,6 +24,8 @@
     <%= form.password_field :password %>
   </div>
   <div class="submit_field">
+	<%= link_to "Forgot password?", new_password_path %>
+    
     <%= form.submit "Sign in", :disable_with => "Please wait..." %>
     <%- if Headstart.configuration.use_facebook_connect -%>
       or <fb:login-button onlogin="facebook_onlogin();" length="long" v="2" size="large"></fb:login-button>
@@ -30,14 +33,7 @@
   </div>
 <% end %>
 
-<ul>
-  <li>
-    <%= link_to "Sign up", sign_up_path %>
-  </li>
-  <li>
-    <%= link_to "Forgot password?", new_password_path %>
-  </li>
-</ul>
+
 
 <%- if Headstart.configuration.use_facebook_connect -%>
   <script type="text/javascript">
