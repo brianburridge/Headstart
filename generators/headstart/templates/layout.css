@@ -10,7 +10,7 @@
 #content {
 width: 940px;
 padding:10px;
-height:400px;
+min-height:400px;
 }
 #footer {
   border-top:1px solid #aaa;
