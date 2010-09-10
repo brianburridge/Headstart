@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
-  s.date = %q{2010-09-08}
+  s.date = %q{2010-09-09}
   s.description = %q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [
@@ -102,7 +102,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/bburridge/Headstart}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Headstart provides the Rails developer a headstart in creating a Rails app providing basic user authentication features.}
   s.test_files = [
     "test/controllers/passwords_controller_test.rb",
@@ -136,7 +136,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mini_fb>, ["= 0.2.2"])
       s.add_runtime_dependency(%q<delayed_job>, ["= 1.8.4"])
       s.add_runtime_dependency(%q<mad_mimi_mailer>, ["= 0.0.7"])
