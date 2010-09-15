@@ -15,6 +15,7 @@ class HeadstartAdminGenerator < Rails::Generator::Base
        "app/views/admin/users/index.html.erb",
        "app/views/admin/users/new.html.erb",
        "app/views/admin/admin/index.html.erb",
+       "app/views/admin/_admin_header.html.erb",
        "app/views/admin/users/show.html.erb"].each do |file|
         m.file file, file
       end

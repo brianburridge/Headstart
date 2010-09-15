@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::AdminController
   MODEL = self.controller_name.singularize.downcase.to_sym
   
   def index
-    @users = User.all
+    @users = User.paginate :page => params[:page], :per_page => Settings.page_limit
   end
   
   def show

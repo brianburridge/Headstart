@@ -44,6 +44,9 @@ class HeadstartGenerator < Rails::Generator::Base
       m.file "reset.css", "public/stylesheets/reset.css"
       m.file "text.css", "public/stylesheets/text.css"
       m.file "layout.css", "public/stylesheets/layout.css"
+      m.file "delete.png", "public/images/delete.png"
+      m.file "add.png", "public/images/add.png"
+      m.file "application_edit.png", "public/images/application_edit.png"
       
       m.file "modernizr-1.5.min.js", "public/javascripts/modernizr-1.5.min.js"
 

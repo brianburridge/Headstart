@@ -1,8 +1,25 @@
-<%= render :partial => 'admin/admin_header' %>
-<h2>Edit User</h2>
-<table>
-<% form_for @user, :url => admin_user_path(@user) do |form| %>
-  <%= render :partial => '/admin/users/form', :object => form %>
-  <tr><td colspan="2"><%= form.submit 'Save', :disable_with => 'Please wait...' %></td></tr>
-<% end %>
-</table>
+<%= form.error_messages %>
+<p class="text_field">
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+</p>
+<p class="text_field">
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+</p>
+<p class="text_field">
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+</p>
+<p class="text_field">
+  <%= form.label :password %></p>
+  <%= form.password_field :password %></p>
+</p>
+<p class="password_field">
+  <%= form.label :password_confirmation, "Confirm password" %>
+  <%= form.password_field :password_confirmation %>
+</p>
+<p class="password_field">
+  <%= form.label :role %>
+  <%= form.collection_select :role, ['', 'admin'], :to_s, :to_s %>
+</p>

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.3.0"
+  s.version = "0.5.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
-  s.date = %q{2010-09-09}
+  s.date = %q{2010-09-15}
   s.description = %q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [
@@ -48,10 +48,13 @@ Gem::Specification.new do |s|
      "generators/headstart/lib/insert_commands.rb",
      "generators/headstart/lib/rake_commands.rb",
      "generators/headstart/templates/README",
+     "generators/headstart/templates/add.png",
      "generators/headstart/templates/app/controllers/sessions_controller.rb",
      "generators/headstart/templates/app/helpers/application_helper.rb",
      "generators/headstart/templates/app/views/sessions/index.html.erb",
      "generators/headstart/templates/application.html.erb",
+     "generators/headstart/templates/application_edit.png",
+     "generators/headstart/templates/delete.png",
      "generators/headstart/templates/factories.rb",
      "generators/headstart/templates/headstart.rb",
      "generators/headstart/templates/headstart.yml",
@@ -72,6 +75,7 @@ Gem::Specification.new do |s|
      "generators/headstart_admin/templates/README",
      "generators/headstart_admin/templates/app/controllers/admin/admin_controller.rb",
      "generators/headstart_admin/templates/app/controllers/admin/users_controller.rb",
+     "generators/headstart_admin/templates/app/views/admin/_admin_header.html.erb",
      "generators/headstart_admin/templates/app/views/admin/admin/index.html.erb",
      "generators/headstart_admin/templates/app/views/admin/users/_form.html.erb",
      "generators/headstart_admin/templates/app/views/admin/users/edit.html.erb",
