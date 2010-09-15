@@ -233,10 +233,7 @@ module Headstart
           end
         end
       end
-      
-      def send_confirmation_email
-        HeadstartMailer.deliver_confirmation self
-      end
+
       
     end
 

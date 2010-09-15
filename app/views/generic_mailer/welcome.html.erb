@@ -1,1 +1,7 @@
-Welcome
+Welcome to <%= Settings.title %>. Thanks for registering and trying it out. Please <%= link_to "click here", new_user_confirmation_url(
+      :user_id => @user,
+      :token   => @user.confirmation_token,
+      :encode  => false) %> to confirm you received this email and activate your account.
+
+Thank you,
+Team <%= Settings.title %>

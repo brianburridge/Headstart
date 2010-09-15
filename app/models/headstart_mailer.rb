@@ -15,14 +15,5 @@ class HeadstartMailer
       GenericMailer.deliver_welcome(user)
     end
   end
-  
-  def self.deliver_confirmation(user)
-    if MadMimiMailer.api_settings.present? && MadMimiMailer.api_settings[:username].present? && MadMimiMailer.api_settings[:api_key].present?
-      MimiMailer.deliver_confirmation(user)
-    else
-      GenericMailer.deliver_confirmation(user)
-    end
-  end
-  
 
 end

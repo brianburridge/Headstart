@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.5.2"
+  s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
      "app/models/impersonation.rb",
      "app/models/mimi_mailer.rb",
      "app/views/generic_mailer/change_password.html.erb",
-     "app/views/generic_mailer/confirmation.html.erb",
      "app/views/generic_mailer/welcome.html.erb",
      "app/views/impersonations/index.html.erb",
      "app/views/passwords/edit.html.erb",
