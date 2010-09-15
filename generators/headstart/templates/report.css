@@ -1,8 +1,19 @@
+.report h2 {
+font-family: Helvetica, Verdana, sans-serif;
+font-size:20px;
+display:block;
+color:#000;
+text-indent:0;
+font-weight:bold;
+}
+.report img {
+  border:none;
+}
 .report table {
-  font-family: "Junction";
+  font-family: Helvetica, Verdana, sans-serif;
   width: 700px;
-  height: 160px;
   border: 2px solid black;
+  margin-top:10px;
 }
 .report table th {
   text-align: center;
@@ -40,22 +51,22 @@
   border-right: 2px solid black;
 }
 .report table th {
-  background-color: #eeeeee;
+  background-color: #C8C6C6;
 }
 .report table th.even, .report table th:nth-child(2n) {
-  background-color: #eeeeee;
+  background-color: #C8C6C6;
 }
 .report table tr.odd td {
-  background-color: #98c67a;
+  background-color: #E7E5E5;
 }
 .report table tr.odd td.even, .report table tr.odd td:nth-child(2n) {
-  background-color: #98c67a;
+  background-color: #E7E5E5;
 }
 .report table tr.even td {
-  background-color: #7a98c6;
+  background-color: #DAE9F1;
 }
 .report table tr.even td.even, .report table tr.even td:nth-child(2n) {
-  background-color: #7a98c6;
+  background-color: #DAE9F1;
 }
 .report table tfoot th, .report table tfoot td {
   background-color: white;

@@ -1,7 +1,36 @@
-<ul>
-  <%- @users.each do |user| -%>
-    <li><%= link_to user.name, admin_user_path(user) %> <%=h user.email %></li>
-  <%- end -%>
-</ul>
+<%= render :partial => 'admin/admin_header' %>
+<div class="report">
+	<h2>Users</h2>
+	<%= link_to image_tag("/images/add.png", :border=>0)+" New user", {:action => :new}, {:style => "font-size:12px;"}  %>
+	
+	
+	<%= will_paginate @users %>
 
-<%= link_to 'New User', new_admin_user_path %>
+	<table width="900px">
+	<thead>
+	<tr style='font:11px verdana;'>
+		<th style="text-align:left">Name</th>
+		<th style="width:70px"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<% @users.each do |user| -%>
+	    <tr class="<%= cycle('odd', 'even') %>">
+	    <td style="text-align:left"><%= user.name %></td>
+	    <td><%= link_to image_tag("/images/application_edit.png", :border=>0), {:action => :edit, :id => user.id}, :title => 'Edit' %>&nbsp;<%= link_to image_tag("/images/delete.png", :border=>0), admin_user_path(user), :confirm => 'Are you sure?', :method => :delete, :title => 'Delete' %>
+	    </td>
+	    </tr>
+	    <% end %>
+	    </tbody>
+	    <tfoot>
+	    <tr>
+	    <td colspan="3">
+	    <%= page_entries_info @users %>
+	    <%= will_paginate @users %>
+	    </td>
+	    </tr>
+	    </tfoot>
+	    </table>
+	
+</div>
+

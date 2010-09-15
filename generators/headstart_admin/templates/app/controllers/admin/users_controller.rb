@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::AdminController
+  MODEL = self.controller_name.singularize.downcase.to_sym
   
   def index
     @users = User.all
@@ -13,8 +14,8 @@ class Admin::UsersController < Admin::AdminController
   end
   
   def create
-    @user = User.new(params[:user])
-    @user.role = params[:user][:role]
+    @user = User.new(params[MODEL])
+    @user.role = params[MODEL][:role]
     if @user.save
       flash[:notice] = "Created #{@user.name}"
       redirect_to admin_user_url(@user)
@@ -29,8 +30,8 @@ class Admin::UsersController < Admin::AdminController
   
   def update
     @user = User.find(params[:id])
-    @user.role = params[:user][:role]
-    if @user.update_attributes(params[:user])
+    @user.role = params[MODEL][:role]
+    if @user.update_attributes(params[MODEL])
       flash[:notice] = "Updated #{@user.name}"
       redirect_to admin_user_url(@user)
     else

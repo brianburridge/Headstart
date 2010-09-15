@@ -1,6 +1,8 @@
+<%= render :partial => 'admin/admin_header' %>
 <h2>Create User</h2>
-
+<table>
 <% form_for @user, :url => admin_users_path do |form| %>
   <%= render :partial => '/admin/users/form', :object => form %>
-  <%= form.submit 'Save', :disable_with => 'Please wait...' %>
+  <tr><td colspan="2"><%= form.submit 'Save', :disable_with => 'Please wait...' %></td></tr>
 <% end %>
+</table>
