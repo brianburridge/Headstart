@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.5.5"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
-  s.date = %q{2010-09-15}
+  s.date = %q{2010-09-16}
   s.description = %q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [
@@ -32,8 +32,8 @@ Gem::Specification.new do |s|
      "app/models/headstart_mailer.rb",
      "app/models/impersonation.rb",
      "app/models/mimi_mailer.rb",
-     "app/views/generic_mailer/change_password.html.erb",
-     "app/views/generic_mailer/welcome.html.erb",
+     "app/views/generic_mailer/change_password.text.html.erb",
+     "app/views/generic_mailer/welcome.text.html.erb",
      "app/views/impersonations/index.html.erb",
      "app/views/passwords/edit.html.erb",
      "app/views/passwords/new.html.erb",
