@@ -65,8 +65,8 @@ class HeadstartGenerator < Rails::Generator::Base
         m.file "user.rb", user_model
       end
       
-      m.insert_into "config/routes.rb",
-                    "Headstart::Routes.draw(map)"
+      m.insert_into "config/routes.rb", "Headstart::Routes.draw(map)"
+      m.insert_into "config/routes.rb", "Jammit::Routes.draw(map)"
 
       m.directory File.join("test", "factories")
       m.file "factories.rb", "test/factories/user.rb"

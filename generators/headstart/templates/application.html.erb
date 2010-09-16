@@ -7,14 +7,19 @@
   <meta name="keywords" content="<%= yield(:keywords) %>" />
   <meta name="robots" content="INDEX,FOLLOW" />
 
-  <%= stylesheet_link_tag "reset", "layout", "text", "style", "report" %>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans+Std+Light' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700' rel='stylesheet' type='text/css'>
+
+    <%= include_stylesheets :workspace, :media => 'all' %>
+
 
 	<%- if request.ssl? -%>
 	  <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
 	<%- else -%>
 	  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
 	<%- end -%>
-  <%= javascript_include_tag 'application','modernizr-1.5.min' %>
+    <%= include_javascripts :workspace %>
 </head>
 <body>
 	
