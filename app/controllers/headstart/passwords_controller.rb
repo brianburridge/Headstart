@@ -11,7 +11,9 @@ class Headstart::PasswordsController < ApplicationController
   end
 
   def create
-    if user = ::User.find_by_email(params[:password][:email])
+    email = params[:password][:email]
+    email.downcase! if email.present?
+    if user = ::User.find_by_email(email)
       user.forgot_password!
       if user.password_reset_token.present?
         if Headstart.configuration.use_delayed_job

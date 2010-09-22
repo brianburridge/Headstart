@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.6.0"
+  s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
-  s.date = %q{2010-09-16}
+  s.date = %q{2010-09-22}
   s.description = %q{Based on Envy Labs Blue Light Special, but modified to provide more options and features.}
   s.email = %q{brian@burridge.net}
   s.extra_rdoc_files = [

@@ -29,6 +29,7 @@ class Headstart::UsersController < ApplicationController
 
   def create
     @user = ::User.new params[:user]
+    @user.email.downcase! if @user.email.present?
     if @user.save
       sign_in(@user)
       flash[:notice] = 'You have successfully signed up.'
@@ -45,6 +46,7 @@ class Headstart::UsersController < ApplicationController
   
   def update
     @user = current_user
+    @user.email.downcase! if @user.email.present?
     if @user.update_attributes(params[:user])
       flash[:success] = 'Your profile has been updated.'
       redirect_back_or(user_path(@user))

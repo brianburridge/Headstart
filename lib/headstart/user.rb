@@ -245,6 +245,7 @@ module Headstart
       # @example
       #   User.authenticate("email@example.com", "password")
       def authenticate(email, password)
+        email.downcase! if email.present?
         return nil  unless user = find_by_email(email)
         return user if     user.authenticated?(password)
       end
