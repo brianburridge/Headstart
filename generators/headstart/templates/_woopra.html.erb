@@ -1,0 +1,10 @@
+<!-- Woopra Code Start -->
+<script type="text/javascript" src="//static.woopra.com/js/woopra.v2.js"></script>
+<script type="text/javascript">
+<% if logged_in? %>
+woopraTracker.addVisitorProperty("name", '<%= current_user.name %>');
+woopraTracker.addVisitorProperty("email", '<%= current_user.email %>');
+<% end %>
+woopraTracker.track();
+</script>
+<!-- Woopra Code End -->

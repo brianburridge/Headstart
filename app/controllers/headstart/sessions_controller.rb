@@ -24,7 +24,7 @@ class Headstart::SessionsController < ApplicationController
       if @user.email_confirmed?
         flash_success_after_create
       else
-        ::HeadstartMailer.deliver_confirmation(@user)
+        ::HeadstartMailer.deliver_welcome(@user)
         flash_notice_after_create
       end
       sign_in(@user)

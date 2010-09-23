@@ -13,6 +13,8 @@ class HeadstartGenerator < Rails::Generator::Base
       m.directory File.join("app", "views", "layouts")
       m.directory File.join("app", "views", "sessions")
       m.file "application.html.erb", "app/views/layouts/application.html.erb"
+      m.file "_woopra.html.erb", "app/views/layouts/_woopra.html.erb"
+      m.file "_google_analytics.html.erb", "app/views/layouts/_google_analytics.html.erb"
       m.file "app/views/sessions/index.html.erb", "app/views/sessions/index.html.erb"
       m.insert_into "app/helpers/application_helper.rb", 
         'def format_title(title)
