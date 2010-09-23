@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{headstart}
-  s.version = "0.6.2"
+  s.version = "0.7.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bran Burridge"]
@@ -47,6 +47,8 @@ Gem::Specification.new do |s|
      "generators/headstart/lib/insert_commands.rb",
      "generators/headstart/lib/rake_commands.rb",
      "generators/headstart/templates/README",
+     "generators/headstart/templates/_google_analytics.html.erb",
+     "generators/headstart/templates/_woopra.html.erb",
      "generators/headstart/templates/add.png",
      "generators/headstart/templates/app/controllers/sessions_controller.rb",
      "generators/headstart/templates/app/helpers/application_helper.rb",
