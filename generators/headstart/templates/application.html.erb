@@ -76,7 +76,7 @@
 	
 	<% if ENV["RAILS_ENV"] == "production" %>
 	  <% if Settings.woopra.present? %><%= render :partial => 'layouts/woopra' %><% end %>
-	  <% if Settings.google_analytics.present? %><%= render :partial => 'layouts/google_analytics' %>
+	  <% if Settings.google_analytics.present? %><%= render :partial => 'layouts/google_analytics' %><% end %>
     <% end %>
 
 </body>
