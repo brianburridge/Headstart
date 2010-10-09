@@ -5,6 +5,7 @@ module Headstart
     attr_accessor :use_facebook_connect
     attr_accessor :facebook_api_key
     attr_accessor :facebook_secret_key
+    attr_accessor :facebook_app_id
     attr_accessor :use_delayed_job
 
     def initialize

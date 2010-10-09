@@ -13,7 +13,7 @@ begin
     gem.authors     = ["Bran Burridge"]
     gem.files       = FileList["[A-Z]*", "{app,config,generators,lib,shoulda_macros,rails}/**/*"]
     
-    gem.add_dependency "mini_fb", '=0.2.2'
+    gem.add_dependency "mini_fb", '=1.1.3'
     gem.add_dependency "delayed_job", '=1.8.4'
     gem.add_dependency "mad_mimi_mailer", '=0.0.7'
     

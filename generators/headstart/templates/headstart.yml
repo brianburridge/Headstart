@@ -19,27 +19,30 @@ development:
   madmimi_username: 
   madmimi_api_key: 
   impersonation_hash: 
-  use_facebook_connect: false
+  use_facebook_connect: $use_facebook_connect
   use_delayed_job: $delayed_job
-  facebook_api_key: 
-  facebook_secret_key: 
+  facebook_api_key: $facebook_api_key
+  facebook_secret_key: $facebook_secret_key
+  facebook_app_id: $facebook_app_id
 
 test:
   mailer_sender: donotreply@example.com
   madmimi_username: 
   madmimi_api_key: 
   impersonation_hash: 
-  use_facebook_connect: false
+  use_facebook_connect: $use_facebook_connect
   use_delayed_job: $delayed_job
-  facebook_api_key: 
-  facebook_secret_key: 
+  facebook_api_key: $facebook_api_key
+  facebook_secret_key: $facebook_secret_key
+  facebook_app_id: $facebook_app_id
 
 production:
   mailer_sender: donotreply@example.com
   madmimi_username: 
   madmimi_api_key: 
   impersonation_hash: 
-  use_facebook_connect: false
+  use_facebook_connect: $use_facebook_connect
   use_delayed_job: $delayed_job
-  facebook_api_key: 
-  facebook_secret_key: 
+  facebook_api_key: $facebook_api_key
+  facebook_secret_key: $facebook_secret_key
+  facebook_app_id: $facebook_app_id

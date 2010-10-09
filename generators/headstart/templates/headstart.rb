@@ -11,6 +11,7 @@ begin
     config.use_delayed_job      = configuration[:use_delayed_job]
     config.facebook_api_key     = configuration[:facebook_api_key]
     config.facebook_secret_key  = configuration[:facebook_secret_key]
+    config.facebook_app_id      = configuration[:facebook_app_id]
   end
 
   if configuration[:madmimi_username].present? && configuration[:madmimi_api_key].present?

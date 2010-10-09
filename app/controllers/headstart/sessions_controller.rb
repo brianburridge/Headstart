@@ -6,6 +6,7 @@ class Headstart::SessionsController < ApplicationController
   filter_parameter_logging :password
 
   def new
+    @oauth_url = MiniFB.oauth_url(Headstart.configuration.facebook_app_id, get_full_app_path + "/sessions/create", :scope=>MiniFB.scopes.join(","))
     render :template => 'sessions/new'
   end
 
@@ -13,8 +14,7 @@ class Headstart::SessionsController < ApplicationController
     @user = if params[:session]
       ::User.authenticate(params[:session][:email], params[:session][:password])
     else
-      ::User.find_facebook_user(cookies[Headstart.configuration.facebook_api_key + "_session_key"],
-                                cookies[Headstart.configuration.facebook_api_key + "_user"])
+      ::User.find_facebook_user(params['code'], get_full_app_path)
     end
       
     if @user.nil?

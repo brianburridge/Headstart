@@ -27,18 +27,14 @@
 	<%= link_to "Forgot password?", new_password_path %>
     
     <%= form.submit "Sign in", :disable_with => "Please wait..." %>
-    <%- if Headstart.configuration.use_facebook_connect -%>
-      or <fb:login-button onlogin="facebook_onlogin();" length="long" v="2" size="large"></fb:login-button>
-    <%- end -%>
+
   </div>
 <% end %>
 
 
-
 <%- if Headstart.configuration.use_facebook_connect -%>
-  <script type="text/javascript">
-    FB.init("<%= Headstart.configuration.facebook_api_key %>", "xd_receiver.html", {
-      permsToRequestOnConnect : "email",
-    });
-  </script>
+  <div style="margin-top:20px">
+	<%= link_to image_tag("facebook_login.png"), @oauth_url %>
+  </div>
 <%- end -%>
+

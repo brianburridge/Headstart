@@ -9,16 +9,21 @@ module Headstart
     module ClassMethods
       def self.extended(controller)
         controller.helper_method :current_user, :signed_in?, 
-                                 :signed_out?,  :impersonating?
+                                 :signed_out?,  :impersonating?,
+                                 :get_full_app_path
         controller.hide_action   :current_user, :current_user=,
                                  :signed_in?,   :signed_out?,
                                  :sign_in,      :sign_out,
                                  :authenticate, :deny_access,
-                                 :impersonating?
+                                 :impersonating?, :get_full_app_path
       end
     end
 
     module InstanceMethods
+      def get_full_app_path
+       return "http://" + APP_CONFIG[:domain]  
+      end
+      
       # User in the current cookie
       #
       # @return [User, nil]
@@ -97,7 +102,7 @@ module Headstart
       
 
       protected
-
+      
       def user_from_cookie
         if token = cookies[:remember_token]
           ::User.find_by_remember_token(token)

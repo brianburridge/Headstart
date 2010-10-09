@@ -250,24 +250,24 @@ module Headstart
         return user if     user.authenticated?(password)
       end
       
-      def find_facebook_user(facebook_session, facebook_uid)
-        return nil unless Headstart.configuration.use_facebook_connect && facebook_session && facebook_uid
-        
+      def find_facebook_user(facebook_code, full_app_path)
+        return nil unless Headstart.configuration.use_facebook_connect && facebook_code
+
         begin
-          facebook_user = MiniFB::Session.new(Headstart.configuration.facebook_api_key,
-                                              Headstart.configuration.facebook_secret_key,
-                                              facebook_session, facebook_uid).user
+          access_token_hash = MiniFB.oauth_access_token('153979687975398', full_app_path + "/sessions/create", Headstart.configuration.facebook_secret_key, facebook_code)
+          @response_hash = MiniFB.get(access_token_hash['access_token'], 'me', :type=> nil, :metadata=>true)
+          @response_hash["user"] == @response_hash.user
         rescue MiniFB::FaceBookError
-          facebook_user = nil
+          @response_hash = nil
         end
-        return nil unless facebook_user
-        
-        user = ::User.find_by_facebook_uid(facebook_uid) || ::User.find_by_email(facebook_user['email']) || ::User.new
+        return nil unless @response_hash
+
+        user = ::User.find_by_facebook_uid(@response_hash['id']) || ::User.find_by_email(@response_hash['email']) || ::User.new
         user.tap do |user|
-          user.facebook_uid     = facebook_uid
-          user.email            = facebook_user['email']
-          user.first_name       = facebook_user['first_name']
-          user.last_name        = facebook_user['last_name']
+          user.facebook_uid     = @response_hash['id']
+          user.email            = @response_hash['email']
+          user.first_name       = @response_hash['first_name']
+          user.last_name        = @response_hash['last_name']
           user.save
         end
       end
