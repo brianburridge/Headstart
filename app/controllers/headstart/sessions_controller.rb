@@ -23,8 +23,9 @@ class Headstart::SessionsController < ApplicationController
     else
       if @user.email_confirmed?
         flash_success_after_create
-      else
+      elsif @user.email_confirmation_sent_at.blank?
         ::HeadstartMailer.deliver_welcome(@user)
+        @user.update_attribute(:email_confirmation_sent_at, Time.now)
         flash_notice_after_create
       end
       sign_in(@user)

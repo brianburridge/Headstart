@@ -20,6 +20,8 @@ module Headstart
     end
 
     module InstanceMethods
+
+      
       def get_full_app_path
        return "http://" + APP_CONFIG[:domain]  
       end

@@ -11,6 +11,7 @@
   <%= form.label :last_name %>
   <%= form.text_field :last_name %>
 </p>
+<%- if current_user.blank? || current_user.facebook_uid.blank? -%>
 <p class="password_field">
   <%= form.label :password %>
   <%= form.password_field :password %>
@@ -18,4 +19,9 @@
 <p class="password_field">
   <%= form.label :password_confirmation, "Confirm password" %>
   <%= form.password_field :password_confirmation %>
+</p>
+<% end %>
+<p class="text_field">
+	<%= form.label :avatar %>
+	<input id="photo" name="user[avatar]" type="file"/>
 </p>

@@ -12,6 +12,13 @@ class HeadstartCreateUsers < ActiveRecord::Migration
       t.string   :password_reset_token, :limit => 128
       t.string   :confirmation_token, :limit => 128
       t.boolean  :email_confirmed, :default => false, :null => false
+      t.boolean  :email_confirmation_sent_at, :datetime
+      
+      t.string   :avatar_file_name
+      t.string   :avatar_content_type
+      t.integer  :avatar_file_size
+      t.datetime :avatar_updated_at
+      
       t.timestamps
     end
 

@@ -40,6 +40,8 @@ class HeadstartGenerator < Rails::Generator::Base
           return content
         end'
 
+      m.file "app/helpers/users_helper.rb", "app/helpers/users_helper.rb"
+      
       m.directory File.join("public", "stylesheets")
       m.file "style.css", "public/stylesheets/style.css"
       m.file "report.css", "public/stylesheets/report.css"

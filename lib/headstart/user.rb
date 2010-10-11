@@ -254,7 +254,7 @@ module Headstart
         return nil unless Headstart.configuration.use_facebook_connect && facebook_code
 
         begin
-          access_token_hash = MiniFB.oauth_access_token('153979687975398', full_app_path + "/sessions/create", Headstart.configuration.facebook_secret_key, facebook_code)
+          access_token_hash = MiniFB.oauth_access_token(Headstart.configuration.facebook_app_id, full_app_path + "/sessions/create", Headstart.configuration.facebook_secret_key, facebook_code)
           @response_hash = MiniFB.get(access_token_hash['access_token'], 'me', :type=> nil, :metadata=>true)
           @response_hash["user"] == @response_hash.user
         rescue MiniFB::FaceBookError
