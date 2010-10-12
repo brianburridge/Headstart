@@ -6,6 +6,7 @@ class Headstart::UsersController < ApplicationController
   filter_parameter_logging :password
   # Before Filter on *only* the 'uninstalled' method 
   before_filter :verify_uninstall_signature, :only => [:facebook_remove] 
+  skip_before_filter :verify_authenticity_token, :only => [:facebook_remove]
 
   def resend_welcome_email
     HeadstartMailer.deliver_welcome(current_user)
@@ -19,7 +20,7 @@ class Headstart::UsersController < ApplicationController
     if @fb_uid.present?
       # From here on it will be app specific -- given the facebook uid, destroy the user, like... 
       @user = User.find_by_facebook_uid(@fb_uid)
-      @user.destroy if @user 
+      @user.update_attribute(:facebook_removed, Time.now) if @user 
     end
     render :nothing => true; return 
   end
