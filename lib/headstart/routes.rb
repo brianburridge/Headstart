@@ -40,6 +40,9 @@ module Headstart
         :controller => 'headstart/impersonations',
         :only       => :index
         
+      map.resend_welcome_email 'resend_welcome_email',
+      :controller   => 'headstart/users',
+      :action       => 'resend_welcome_email'
       map.sign_up    'sign_up',
         :controller   => 'headstart/users',
         :action       => 'new'

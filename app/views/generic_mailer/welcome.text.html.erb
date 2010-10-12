@@ -1,7 +1,7 @@
-Welcome to <%= Settings.title %>. Thanks for registering and trying it out. Please <%= link_to "click here", new_user_confirmation_url(
+<p>Welcome to <%= Settings.title %>. Thanks for registering and trying it out. Please <%= link_to "click here", new_user_confirmation_url(
       :user_id => @user,
       :token   => @user.confirmation_token,
-      :encode  => false) %> to confirm you received this email and activate your account.
+      :encode  => false) %> to confirm you received this email and activate your account.</p>
 
-Thank you,
-Team <%= Settings.title %>
+<p>Thank you,<br/>
+Team <%= Settings.title %></p>

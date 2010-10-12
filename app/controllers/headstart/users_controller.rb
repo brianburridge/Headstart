@@ -7,6 +7,13 @@ class Headstart::UsersController < ApplicationController
   # Before Filter on *only* the 'uninstalled' method 
   before_filter :verify_uninstall_signature, :only => [:facebook_remove] 
 
+  def resend_welcome_email
+    HeadstartMailer.deliver_welcome(current_user)
+    flash[:notice] = 'Your confirmation email has been resent.'
+    @user = current_user
+    render :template => 'users/edit'
+  end
+  
   def facebook_remove
     @fb_uid = params[:fb_sig_user] 
     if @fb_uid.present?
@@ -41,6 +48,9 @@ class Headstart::UsersController < ApplicationController
   
   def edit
     @user = current_user
+    if !@user.email_confirmed?
+      flash[:notice] = 'Your account has not been confirmed yet. Please confirm using the link in the Welcome email sent to you. Click <a href="/resend_welcome_email">here</a> to resend confirmation email.'
+    end
     render :template => 'users/edit'
   end
   

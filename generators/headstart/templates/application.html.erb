@@ -43,7 +43,7 @@
 		      | <%= link_to 'Admin', "/admin" %>
 		    <% end %>
 
-		    | <%= link_to 'My Profile', user_path(current_user) %>
+		    | <%= link_to 'My Profile', edit_user_path(current_user) %>
 		  <% else %>
 		    <%= link_to 'Sign in', sign_in_path %> |
 		    <%= link_to 'Sign up', sign_up_path %>
@@ -55,7 +55,7 @@
 	<div id="content" class="container_12">
 		<div id="flash">
 	    <%- flash.each do |key, value| -%>
-	      <div class="<%= key %>_flash"><%=h value %></div>
+	      <div class="<%= key %>_flash"><%= value %></div>
 	    <%- end -%>
 	  </div>
 	  <%= yield %>
