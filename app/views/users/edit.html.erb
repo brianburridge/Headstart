@@ -1,6 +1,8 @@
 <% content_for :title do %>Edit My Profile<% end %>
 <h2>Edit My Profile</h2>
 
+<%= image_tag avatar_url(@user) %>
+
 <% form_for @user, :html => { :enctype => "multipart/form-data"} do |form| %>
   <%= render :partial => '/users/form', :object => form %>
   <%= form.submit 'Save', :disable_with => 'Please wait...' %>

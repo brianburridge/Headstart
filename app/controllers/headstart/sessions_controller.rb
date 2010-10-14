@@ -6,7 +6,8 @@ class Headstart::SessionsController < ApplicationController
   filter_parameter_logging :password
 
   def new
-    @oauth_url = MiniFB.oauth_url(Headstart.configuration.facebook_app_id, get_full_app_path + "/sessions/create", :scope=>MiniFB.scopes.join(","))
+    # Scopes: http://developers.facebook.com/docs/authentication/permissions
+    @oauth_url = MiniFB.oauth_url(Headstart.configuration.facebook_app_id, get_full_app_path + "/sessions/create", :scope=> "user_about_me, publish_stream, email") #MiniFB.scopes.join(",")
     render :template => 'sessions/new'
   end
 

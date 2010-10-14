@@ -5,11 +5,7 @@
   <%- else -%>
     <%= javascript_include_tag 'http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US' %>
   <%- end -%>
-  <script>
-    function facebook_onlogin() {
-      document.location.href = "<%= fb_connect_path %>";
-    }
-  </script>
+
 <%- end -%>
 
 <h2>Sign in</h2>
