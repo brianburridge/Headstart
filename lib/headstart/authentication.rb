@@ -105,6 +105,12 @@ module Headstart
 
       protected
       
+      
+      def set_oauth_url
+        # Scopes: http://developers.facebook.com/docs/authentication/permissions
+        @oauth_url = MiniFB.oauth_url(Headstart.configuration.facebook_app_id, get_full_app_path + "/sessions/create", :scope=> "user_about_me, publish_stream, email") #MiniFB.scopes.join(",")
+      end
+      
       def user_from_cookie
         if token = cookies[:remember_token]
           ::User.find_by_remember_token(token)

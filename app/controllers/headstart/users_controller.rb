@@ -7,7 +7,8 @@ class Headstart::UsersController < ApplicationController
   # Before Filter on *only* the 'uninstalled' method 
   before_filter :verify_uninstall_signature, :only => [:facebook_remove] 
   skip_before_filter :verify_authenticity_token, :only => [:facebook_remove]
-
+  before_filter :set_oauth_url, :only => [:new, :create]
+  
   def resend_welcome_email
     HeadstartMailer.deliver_welcome(current_user)
     flash[:notice] = 'Your confirmation email has been resent.'

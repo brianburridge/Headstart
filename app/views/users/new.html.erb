@@ -1,7 +1,22 @@
 <% content_for :title do %>Sign up<% end %>
+<%- if Headstart.configuration.use_facebook_connect -%>
+  <%- if request.ssl? -%>
+    <%= javascript_include_tag 'https://ssl.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US' %>
+  <%- else -%>
+    <%= javascript_include_tag 'http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US' %>
+  <%- end -%>
+
+<%- end -%>
+
 <h2>Sign up</h2>
 
 <% form_for @user, :html => { :enctype => "multipart/form-data"} do |form| %>
   <%= render :partial => '/users/form', :object => form %>
   <%= form.submit 'Sign up', :disable_with => 'Please wait...' %>
 <% end %>
+
+<%- if Headstart.configuration.use_facebook_connect -%>
+  <div style="margin-top:20px">
+	<%= link_to image_tag("facebook_login.png"), @oauth_url %>
+  </div>
+<%- end -%>
