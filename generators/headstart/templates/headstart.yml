@@ -24,6 +24,8 @@ development:
   facebook_api_key: $facebook_api_key
   facebook_secret_key: $facebook_secret_key
   facebook_app_id: $facebook_app_id
+  url_after_create: /
+  session_failure_template: sessions/new
 
 staging:
   mailer_sender: $mailer_sender
@@ -35,6 +37,8 @@ staging:
   facebook_api_key: $facebook_api_key
   facebook_secret_key: $facebook_secret_key
   facebook_app_id: $facebook_app_id
+  url_after_create: /
+  session_failure_template: sessions/new
     
 test:
   mailer_sender: $mailer_sender
@@ -46,6 +50,8 @@ test:
   facebook_api_key: $facebook_api_key
   facebook_secret_key: $facebook_secret_key
   facebook_app_id: $facebook_app_id
+  url_after_create: /
+  session_failure_template: sessions/new
 
 production:
   mailer_sender: $mailer_sender
@@ -57,3 +63,5 @@ production:
   facebook_api_key: $facebook_api_key
   facebook_secret_key: $facebook_secret_key
   facebook_app_id: $facebook_app_id
+  url_after_create: /
+  session_failure_template: sessions/new

@@ -19,7 +19,7 @@ class Headstart::SessionsController < ApplicationController
       
     if @user.nil?
       flash_failure_after_create
-      render :template => 'sessions/new', :status => :unauthorized
+      render :template => Headstart.configuration.session_failure_template, :status => :unauthorized
     else
       if @user.email_confirmed?
         flash_success_after_create
@@ -64,7 +64,7 @@ class Headstart::SessionsController < ApplicationController
   end
 
   def url_after_create
-    '/'
+    Headstart.configuration.url_after_create
   end
 
   def flash_success_after_destroy

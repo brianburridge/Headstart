@@ -7,6 +7,8 @@ module Headstart
     attr_accessor :facebook_secret_key
     attr_accessor :facebook_app_id
     attr_accessor :use_delayed_job
+    attr_accessor :url_after_create
+    attr_accessor :session_failure_template
 
     def initialize
       @mailer_sender          = 'donotreply@example.com'

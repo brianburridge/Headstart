@@ -12,6 +12,8 @@ begin
     config.facebook_api_key     = configuration[:facebook_api_key]
     config.facebook_secret_key  = configuration[:facebook_secret_key]
     config.facebook_app_id      = configuration[:facebook_app_id]
+    config.url_after_create      = configuration[:url_after_create]
+    config.session_failure_template      = configuration[:session_failure_template]
   end
 
   if configuration[:madmimi_username].present? && configuration[:madmimi_api_key].present?
