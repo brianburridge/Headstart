@@ -58,7 +58,8 @@ module Headstart
           validates_presence_of     :password, :unless => :password_optional?
           validates_confirmation_of :password, :unless => :password_optional?
           
-          validates_presence_of     :first_name, :last_name
+          validates_presence_of     :first_name
+          validates_presence_of     :first_name, :last_name, :if => :last_name_should_be_required? 
         end
       end
     end
@@ -79,6 +80,10 @@ module Headstart
     end
 
     module InstanceMethods
+      def last_name_should_be_required?
+        true
+      end
+      
       # Am I authenticated with given password?
       #
       # @param [String] plain-text password
@@ -238,6 +243,7 @@ module Headstart
     end
 
     module ClassMethods
+      
       # Authenticate with email and password.
       #
       # @param [String, String] email and password
